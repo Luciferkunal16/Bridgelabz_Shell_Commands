@@ -5,23 +5,24 @@ echo -e "3) Inch to Feet"
 echo -e "4) Meter to Feet"
 read -p "Your choice" choice
 case $choice in 
-	1) echo -e "enter the value in Feet"
+	1) echo  "enter the value in Feet"
 		read feet
 		inch=$(($feet*12))
 		echo "Value in Inch is $inch"
 		;;
-	2) echo -e "Enter the value in Feet"
+	2) echo  "Enter the value in Feet"
 		read feet
-		echo " $feet*0.308" | bc 
+		meter=$(echo "scale=8;$feet*0.3048" | bc )
+		echo "Value in Meter is $meter"
 		;;
-	3) echo -n "Enter the value in Inch"
+	3) echo  "Enter the value in Inch"
 		read inch
-		feet=$(($inch*0.08333))
+		feet=$(echo "scale=2;$inch*0.08333" | bc )
 		echo "Value in Feet is $feet"
 		;;
-	4) echo -n "Enter The value in Meter"
+	4) echo e "Enter The value in Meter"
 		read meter
-		feet=$(($meter*3.28084))
+		feet=$(echo "scale=2;$meter*3.28084" | bc  )
 		echo "Value in Feet is $feet"
 		;;
 esac
